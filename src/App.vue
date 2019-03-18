@@ -1,11 +1,11 @@
 <template>
   <div>
-    <img alt="Vue logo" src="./assets/logo.png">
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <HelloWorld msg="Vue.js App"/>
-    <p v-if="!!result">result = {{result}}</p>
-    <button @click="calculate">calculate</button>
+    <!-- <p v-if="!!result">result = {{result}}</p> -->
+    <!-- <button @click="calculate">calculate</button> -->
 
-    <div>{{ message }}</div>
+    <!-- <div>{{ message }}</div> -->
 
   </div>
 </template>
