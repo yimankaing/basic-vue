@@ -1,37 +1,47 @@
 <template>
-  <div>
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <HelloWorld msg="Vue.js App"/>
-    <!-- <p v-if="!!result">result = {{result}}</p> -->
-    <!-- <button @click="calculate">calculate</button> -->
+  <div id="app">
+    <div class="container">
+      <label for="inputa">Input A</label>
+      <input v-model.number="inputa" type="number">
+      <br>
+      <label for="inputb">Input B</label>
+      <!-- <input v-model="inputb" type="number"> -->
+      <input v-model.number="inputb" type="number">
+    </div>
+    <!-- <input type="radio" id="sum" v-model="operator" value="0">sum -->
+    <input type="radio" id="sum" v-model="operator" value="sum">sum
+    <!-- <input type="radio" id="sub" v-model="operator" value="1">sub -->
+    <input type="radio" id="sub" v-model="operator" value="sub">sub
+    <!-- <input type="radio" id="mul" v-model="operator" value="2">mul -->
+    <input type="radio" id="mul" v-model="operator" value="mul">mul
+    <!-- <input type="radio" id="div" v-model="operator" value="3">div -->
+    <input type="radio" id="div" v-model="operator" value="div">div
+    <br>
 
-    <!-- <div>{{ message }}</div> -->
-
+    <button @click="calculator">calculate</button>
+    <p v-if="!!result">result = {{result}}</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import {sum} from './someFunction.js';
+import { calculate } from "./someFunction.js";
 export default {
-
-  components: {
-    HelloWorld
-  },
   data() {
     return {
-      message: "hello message",
-      value1: 10,
-      value2: 20,
-      result: 0
+      operator: "", //add default value operator: 'sum'
+      inputa: "",
+      inputb: "",
+      result: ''
     };
   },
   methods: {
-    calculate() {
-      this.result = sum(this.value1 , this.value2);
+    calculator() {
+      this.result = calculate(this.inputa, this.inputb, this.operator);
+      // return parseFloat(this.inputa) + parseFloat(this.inputb);
     }
   }
 };
+</script>
 </script>
 
 <style>
