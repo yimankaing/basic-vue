@@ -20,25 +20,29 @@
 
     <!-- <button @click="calculator">calculate</button> -->
     <!-- <p v-if="!!result">result = {{result}}</p> -->
-    
+
     <!-- <sign-in @setUser="updateUser" v-if="!currentUser"/> -->
     <!-- <home @setUser="updateUser" :username="currentUser.username" v-else/> -->
-  
-  <sign-in v-if="!currentUser" @setUser="updateUser"></sign-in>
 
-  <home v-if="currentUser" :username="currentUser.username"></home>
+    <!-- <sign-in v-if="!currentUser" @setUser="updateUser"></sign-in> -->
 
+    <!-- <home v-if="currentUser" :username="currentUser.username"></home> -->
+    <router-link to="/post">Go to Post</router-link>
+    <router-link to="/profile">Go to Profile</router-link>
+    <div style="background: #e4e4e4; width: 80%; height: 80%">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
 // import { calculate } from "./someFunction.js";
 
-import SignIn from './components/SignIn';
-import Home from './components/Home';
+import SignIn from "./components/SignIn";
+import Home from "./components/Home";
 
 export default {
-  components: {SignIn, Home},
+  components: { SignIn, Home },
   data() {
     return {
       currentUser: null
@@ -49,7 +53,7 @@ export default {
     };
   },
   methods: {
-    updateUser(user){
+    updateUser(user) {
       this.currentUser = user;
       // this.currentUser = {username: 'admin', password: '123456'}
     }
